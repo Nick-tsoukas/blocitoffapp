@@ -11,9 +11,10 @@
       addTask: function(newTask) {
         tasks.$add({name: newTask});
       },
-       Test: function(some){
-         console.log('hello')
-       },
+      deleteTask : function(e) {
+        console.log('fire')
+        tasks.$remove(e);
+      },
       all: tasks
     };
   }

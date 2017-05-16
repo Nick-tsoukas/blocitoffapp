@@ -6,10 +6,12 @@
     this.createTask = function (value) {
       Task.addTask(value);
     }
+    this.removeTask = function(value) {
+      console.log('hello world');
+      Task.deleteTask(value);
  	}
 
-    this.removeTask = function(value) {
-      Task.deleteTask(value);
+
     }
 
 

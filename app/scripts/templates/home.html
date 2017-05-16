@@ -3,7 +3,10 @@
     <h3>Tasks:</h3>
     <ul ng-if="home.tasks.length">
 
-      <li ng-repeat="task in home.tasks">{{ task.name }}</li>
+      <li ng-repeat="task in home.tasks">{{ task.name }}<br>
+         <button ng-click="home.removeTask()">remove</button>
+      </li>
+
     </ul>
     <p ng-if="!home.tasks.length">No tasks to show.</p>
 
