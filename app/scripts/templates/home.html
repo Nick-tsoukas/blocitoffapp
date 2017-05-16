@@ -1,0 +1,12 @@
+<h1>{{ home.title }}</h1>
+
+    <h3>Tasks:</h3>
+    <ul ng-if="home.tasks.length">
+
+      <li ng-repeat="task in home.tasks">{{ task.name }}</li>
+    </ul>
+    <p ng-if="!home.tasks.length">No tasks to show.</p>
+
+    <input type="text" ng-model="home.taskName" />
+
+    <button ng-click="home.createTask(home.taskName)">Add task</button>
