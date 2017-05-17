@@ -15,6 +15,6 @@
     }
 
     angular
-        .module('taskApp', ['ui.router', 'firebase','ngMaterial'])
+        .module('taskApp', ['ui.router', 'firebase'])
         .config(config);
 })();

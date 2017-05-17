@@ -9,11 +9,17 @@
 
     return {
       addTask: function(newTask) {
-        tasks.$add({name: newTask});
+        tasks.$add({name: newTask}).then(function(ref) {
+        var id = ref.key;
+        console.log("added record with id " + id);
+        tasks.$indexFor(id); // returns location in the array
+        tasks.newTask = " ";
+});
+
       },
-      deleteTask : function(e) {
+      deleteTask : function(id) {
         console.log('fire')
-        tasks.$remove(e);
+        tasks.$remove(tasks[tasks.length -1]);
       },
       all: tasks
     };
