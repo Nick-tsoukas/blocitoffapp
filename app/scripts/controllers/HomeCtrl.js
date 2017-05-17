@@ -8,9 +8,13 @@
     }
     this.removeTask = function(value) {
       console.log('hello world');
-      Task.deleteTask(value);
+      Task.deleteTask();
  	}
 
+    this.completed = function(task) {
+      console.log('checked');
+      return Task.completed(); 
+    }
 
     }
 

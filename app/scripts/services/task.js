@@ -9,14 +9,22 @@
 
     return {
       addTask: function(newTask) {
-        tasks.$add({name: newTask}).then(function(ref) {
-        var id = ref.key;
-        console.log("added record with id " + id);
-        tasks.$indexFor(id); // returns location in the array
-        tasks.newTask = " ";
-});
+        tasks.$add(
+          {
+          name: newTask,
+          state : 'active',
+          startedAt: firebase.database.ServerValue.TIMESTAMP,
+          completed: false
+
+        });
 
       },
+      // Not in use
+      completed: function(){
+        console.log('hello world');
+          return  tasks.completed = true;
+          },
+   // method not in use
       deleteTask : function(id) {
         console.log('fire')
         tasks.$remove(tasks[tasks.length -1]);

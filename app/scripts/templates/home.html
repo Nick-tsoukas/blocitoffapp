@@ -1,24 +1,24 @@
 <section class="header">
-<h1 class="headerText">Dashboard</h1>
+    <h1 class="headerText">Dashboard</h1>
 </section>
 <div class="center">
-<section class="taskBox">
-  <!-- <div class="header">
-    <h1 class="leftPadding">{{ home.title }}</h1>
-  </div> -->
-  <input type="text" ng-model="home.taskName" placeholder="Task..." />
-  <!-- <button class="button blue raised" ng-click="home.createTask(home.taskName)" >Add task</button> -->
-  <i ng-click="home.createTask(home.taskName)" class="material-icons md-48">add_circle_outline</i>
-  <div class="">
-        <ul  ng-if="home.tasks.length">
-            <li class="listItem" ng-repeat="task in home.tasks"><span style="padding-left:3rem;">{{ task.name }}</span>
-          <!-- <button class="floatButton" ng-click="home.removeTask()">remove</button> -->
-          <i  ng-click="home.removeTask()" class=" floatButton material-icons md-48">delete</i>
+    <section class="taskBox">
 
-            </li>
-        </ul>
-    <p ng-if="!home.tasks.length">No tasks to show.</p>
+        <input type="text" ng-model="home.taskName" placeholder="Task..." />
 
-</div>
-</section>
+            <i ng-click="home.createTask(home.taskName)" class="material-icons md-48">add_circle_outline</i>
+                <div>
+                    <ul ng-if="home.tasks.length">
+
+                        <li class="listItem" ng-repeat="task in home.tasks"><span style="padding-left:3rem;">{{ task.name }} : {{task.completed}}</span>
+                              <i ng-click="home.tasks.$remove(task)" class=" floatButton material-icons md-48">delete</i>
+                              <input type="checkbox" ng-click="home.completed()">
+                        </li>
+
+                    </ul>
+
+                    <p ng-if="!home.tasks.length">No tasks to show.</p>
+
+                </div>
+    </section>
 </div>
