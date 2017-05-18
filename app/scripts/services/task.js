@@ -1,14 +1,11 @@
 (function() {
   function Task($firebaseArray) {
-
-
-
     var ref = firebase.database().ref();
-
     var tasks = $firebaseArray(ref);
 
     return {
       addTask: function(newTask) {
+        // tying to create method that updates the completed prop on click
         tasks.$add(
           {
           name: newTask,
