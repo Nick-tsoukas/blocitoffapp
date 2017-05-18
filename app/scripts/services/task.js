@@ -21,10 +21,10 @@
         console.log('hello world');
           return  tasks.completed = true;
           },
-   // method not in use
-      deleteTask : function(id) {
-        console.log('fire')
-        tasks.$remove(tasks[tasks.length -1]);
+   // delete tasks on click method now working
+      deleteTask : function(task) {
+        console.log(task)
+        tasks.$remove(task);
       },
       all: tasks
     };

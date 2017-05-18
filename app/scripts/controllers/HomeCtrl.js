@@ -10,9 +10,8 @@
       Task.addTask(value);
       this.taskName = ""
     }
-    this.removeTask = function(value) {
-      console.log('hello world');
-      Task.deleteTask();
+    this.removeTask = function(task) {
+      Task.deleteTask(task);
  	}
 
     this.completed = function(task) {
