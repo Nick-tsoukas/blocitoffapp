@@ -20,6 +20,7 @@
       completed: function(task){
         console.log(task);
         task.completed = true;
+        task.active = false;
           },
    // delete tasks on click method now working
       deleteTask : function(task) {

@@ -14,8 +14,15 @@
         <i ng-click="home.removeTask(task)" class=" floatButton material-icons md-48">delete</i>
       </li>
    </ul>
+   <ul>
+     <li class="listItem" ng-repeat="list in home.completedList">{{list.name}}
+
+     </li>
+   </ul>
 
    <p ng-if="!home.tasks.length">No tasks to show.</p>
   </section>
+
+
 
 </div>

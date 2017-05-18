@@ -3,7 +3,7 @@
     this.title = "Tasks Manager"
     this.tasks = Task.all;
     this.test = Task;
-
+    this.completedList = [];
 
 
     this.createTask = function (value) {
@@ -17,8 +17,9 @@
     this.completed = function(task) {
       console.log('checked');
      Task.completed(task);
+     this.completedList.push(task)
     }
-
+ 
     }
 
 
