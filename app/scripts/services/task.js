@@ -17,9 +17,9 @@
 
       },
       // Not in use
-      completed: function(){
-        console.log('hello world');
-          return  tasks.completed = true;
+      completed: function(task){
+        console.log(task);
+        task.completed = true;
           },
    // delete tasks on click method now working
       deleteTask : function(task) {

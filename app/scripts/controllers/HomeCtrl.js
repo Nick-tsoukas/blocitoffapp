@@ -16,7 +16,7 @@
 
     this.completed = function(task) {
       console.log('checked');
-      return Task.completed();
+     Task.completed(task);
     }
 
     }

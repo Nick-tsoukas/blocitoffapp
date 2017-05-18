@@ -10,7 +10,7 @@
     <form>
     <ul ng-if="home.tasks.length">
       <li class="listItem" ng-repeat="task in home.tasks"><span style="padding-left:2rem;">{{ task.name }} : {{task.completed}}</span>
-        <!-- <i ng-click="home.tasks.$remove(task)" class=" floatButton material-icons md-48">delete</i> -->
+        <i ng-click="home.completed(task)" class=" floatButton material-icons md-48">checked</i>
         <i ng-click="home.removeTask(task)" class=" floatButton material-icons md-48">delete</i>
       </li>
    </ul>
