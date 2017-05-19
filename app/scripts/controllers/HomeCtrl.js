@@ -1,10 +1,10 @@
 (function() {
   function HomeCtrl(Task,$scope,$firebaseArray) {
     this.title = "Tasks Manager"
-    this.tasks = Task.all;
+    // this.tasks = Task.all;
     this.test = Task;
-    this.completedList = [];
-
+    // this.activeList
+    this.completedList = Task.completedTasks;
 
     this.createTask = function (value) {
       Task.addTask(value);
@@ -19,7 +19,7 @@
      Task.completed(task);
      this.completedList.push(task)
     }
- 
+
     }
 
 
