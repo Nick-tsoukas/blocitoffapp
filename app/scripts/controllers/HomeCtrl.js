@@ -2,7 +2,7 @@
   function HomeCtrl(Task,$scope,$firebaseArray,$state) {
   //  $state.transitionTo('home.test');
 
-
+this.viewCompleted = false;
     this.title = "Tasks Manager"
     this.tasks = Task.all;
     this.image = "..\scripts\background.gif";

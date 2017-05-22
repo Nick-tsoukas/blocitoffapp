@@ -2,17 +2,21 @@
   function Task($firebaseArray) {
     var ref = firebase.database().ref();
     var tasks = $firebaseArray(ref);
-     var completedTasks = [];
-var activeTasks = [];
-var expiredList =[];
- var Seven_days = 604800000;
-var timeNow = new Date().getTime();
+    var completedTasks = [];
+    var activeTasks = [];
+    var expiredList =[];
+    var Seven_days = 604800000;
+    var timeNow = new Date().getTime();
     tasks.$loaded()
       .then(function(x) {
+        console.log(x);
         tasks.forEach(function(task){
+          if(task.completed){
+            completedTasks.push(task);
+          }
            if((timeNow - task.startedAt) > 0){
            expiredList.push(task);
-           tasks.$remove(task);
+          //  tasks.$remove(task);
 
 
            }
@@ -50,7 +54,7 @@ var timeNow = new Date().getTime();
         task.completed = true;
         task.active = false;
         tasks.$save(task).then(function(){
-            tasks.$remove(task);
+            // tasks.$remove(task);
         });
 
       },
