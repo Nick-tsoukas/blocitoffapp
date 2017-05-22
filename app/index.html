@@ -21,12 +21,84 @@
        <md-nav-item md-nav-sref="completed">Completed Tasks</md-nav-item>
 
        </md-nav-item>
-       <md-nav-item md-nav-sref="expired" >Expired Tasks</md-nav-item>
+       <md-nav-item md-nav-sref="expired">Expired Tasks</md-nav-item>
 
        </md-nav-item>
      </md-content >
 
-  <ui-view></ui-view>
+     <!-- home section -->
+  <div ng-controller="HomeCtrl as home">
+    <button ng-click="home.checked()">checkTime</button>
+        <md-card class="myCard">
+          <!-- <img ng-src="..\scripts\background.gif" class="md-card-image" alt="image caption"> -->
+          <md-card-header-text class="cardTitle"> Active </md-card-header-text>
+                <md-card-actions layout="row" layout-align="start center">
+                  <md-card-icon-actions>
+                    <md-input-container>
+                      <form ng-submit="home.createTask(home.taskName)" >
+                        <label>Add a task...</label>
+                        <input type="text"  ng-model="home.taskName" >
+                      </form>
+                    </md-input-container>
+                  </md-card-icon-actions>
+                </md-card-actions>
+                <md-card-content>
+                  <md-list ng-if="home.tasks.length" >
+
+                    <md-list-item class="" ng-repeat="task in home.tasks"> {{ task.name }} : {{task.startedAt}}
+                   <md-checkbox  class="md-secondary" ng-click="home.completed(task ,$index)">
+
+                    </md-list-item>
+                  </md-list>
+                </md-card-content>
+              </md-card>
+
+    <div ng-controller="ExpiredCtrl as expired">
+
+          <md-card class="myCard">
+              <md-card-header-text class="cardTitle"> Expired Tasks </md-card-header-text>
+
+            <!-- <img ng-src="..\scripts\background.gif" class="md-card-image" alt="image caption"> -->
+
+            <md-card-actions layout="row" layout-align="start center">
+              <md-card-icon-actions>
+              </md-card-icon-actions>
+            </md-card-actions>
+            <md-card-content>
+              <md-list >
+                <md-list-item class="" ng-repeat="list in expired.expiredList">{{list.name}}
+              <md-icon  class="md-secondary green" class=" ">check
+                </md-list-item>
+              </md-list>
+            </md-card-content>
+          </md-card>
+
+    </div>
+    <div ng-controller="CompTask as comp">
+      <md-card class="myCard">
+          <md-card-header-text class="cardTitle"> Completed Tasks </md-card-header-text>
+
+        <!-- <img ng-src="..\scripts\background.gif" class="md-card-image" alt="image caption"> -->
+
+        <md-card-actions layout="row" layout-align="start center">
+          <md-card-icon-actions>
+          </md-card-icon-actions>
+        </md-card-actions>
+        <md-card-content>
+          <md-list >
+            <md-list-item class="" ng-repeat="list in comp.completedList">{{list.name}}
+          <md-icon  class="md-secondary green" class=" ">check
+            </md-list-item>
+          </md-list>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+
+
+
+
+  <!-- <ui-view></ui-view> -->
   <!-- Angular Material requires Angular.js Libraries -->
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
@@ -38,7 +110,7 @@
 
   <!-- AngularUI Router -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script> -->
 
   <!-- FireBase -->
   <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
