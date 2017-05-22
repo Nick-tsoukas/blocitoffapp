@@ -5,13 +5,16 @@
      var completedTasks = [];
 var activeTasks = [];
 var expiredList =[];
-
-
+ var Seven_days = 604800000;
+var timeNow = new Date().getTime();
     tasks.$loaded()
       .then(function(x) {
         tasks.forEach(function(task){
-           if(task.startedAt > 1){
-           expiredList.push(task)
+           if((timeNow - task.startedAt) > 0){
+           expiredList.push(task);
+           tasks.$remove(task);
+
+
            }
           else {
 

@@ -9,9 +9,6 @@
     this.activeList
     this.completedList = Task.completedTasks;
     this.expiredList = Task.expiredList;
-this.checked = function (task){
-  Task.check();
-}
     this.createTask = function (value) {
       Task.addTask(value);
       this.taskName = ""
@@ -21,12 +18,7 @@ this.checked = function (task){
  	}
 
     this.completed = function(task) {
-      var d = new Date();
-      var n = d.getMilliseconds();
-      console.log(task.startedAt - n)
-
      Task.completed(task);
-       this.expiredList.push(task)
      this.completedList.push(task)
     }
 
