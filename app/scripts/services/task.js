@@ -2,23 +2,34 @@
   function Task($firebaseArray) {
     var ref = firebase.database().ref();
     var tasks = $firebaseArray(ref);
-    var completedTasks = [];
+     var completedTasks = [];
+var activeTasks = [];
+var expiredList =[];
+
 
     tasks.$loaded()
       .then(function(x) {
         tasks.forEach(function(task){
-          // if completed, put into completed array
-          if(task.completed === true){
-            completedTasks.push(task);
-            console.log("completed task added to array");
-          }
+           if(task.startedAt > 1){
+           expiredList.push(task)
+           }
           else {
-            // put into active array
+
           }
         })
       });
 
     return {
+      check: function(task){
+        tasks.forEach(function(task){
+           if(task.startedAt > 1){
+           expiredList.push(task)
+           }
+          else {
+
+          }
+        })
+      },
       addTask: function(newTask) {
         // tying to create method that updates the completed prop on click
         tasks.$add(
@@ -31,12 +42,14 @@
         });
 
       },
-      // Not in use
-      completed: function(task){
+      completed: function(task, $index){
         console.log(task);
         task.completed = true;
         task.active = false;
-        tasks.$save(task);
+        tasks.$save(task).then(function(){
+            tasks.$remove(task);
+        });
+
       },
    // delete tasks on click method now working
       deleteTask : function(task) {
@@ -44,6 +57,8 @@
         tasks.$remove(task);
       },
       completedTasks: completedTasks,
+      expiredList : expiredList,
+
       all: tasks
     };
   }

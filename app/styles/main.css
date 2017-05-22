@@ -1,100 +1,49 @@
-.taskBox {
-padding-bottom:5rem;
-width:100%;
 
-color:black;
-background: white;
-margin-left:3rem;
-margin-right:3rem;
+
+.myCard {
+    /*min-width: 80%;*/
+    /* float: left; */
+    margin-left: 6rem;
+    margin-right: 6rem;
 }
-html.md-default-theme, html, body.md-default-theme, body {
-    color: rgba(0,0,0,0.87);
-    background-color: white;
+.cardTitle {
+  text-align: left;
+  /* padding-left: 1rem; */
+  padding-top:1rem;
+  padding-left: 1rem;
+  min-height: 50px;
+  background: #F7F9FC;
+}
+
+.myCard img {
+  max-height:200px;
+}
+.green {
+  color: green;
+}
+
+.addPaddingBottom {
+  margin-bottom:3rem;
 }
 .center {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
+  vertical-align: middle;
+  background:white;
+  text-align: center;
+  margin-left: 20%;
+  margin-right:20%
 }
-input {
-  margin: 1.5rem;
-  font-size: 2rem;
-
+.top-button {
+  position:relative;
+  bottom:4rem;
 }
-
-.header h1 {
-  color:white;
-  padding:1rem;
-  max-width: 30%;
-}
-.listItem {
-  margin: 1rem;
-
-  padding-bottom:1rem;
-
-}
-ul li:nth-child(odd) {
-    border-left: 10px solid #54B0F3 ;
-
-}
-ul li:nth-child(even) {
-    border-left: 10px solid #B1C5C4;
-
-}
-.header {
-
-  width: 100%;
-  background:#54B0F3;
-}
-.leftPadding {
-  /*padding-left:3rem;*/
+.left {
+  text-align: left;
 }
 
-.floatButton {
-  float:right;
-  margin-right:3rem;
-}
-.noMargin {
-  margin:none;
-}
-
-ul {
-  list-style-type: none;
-  margin-left:none;
-  padding:inherit;
-
-
-
-}
-ul li {
-    cursor: pointer;
+md-content {
+    display: block;
     position: relative;
-    padding: 12px 8px 12px 40px;
-    background: white;
-    font-size: 18px;
-    transition: 0.2s;
-
-    /* make the list items unselectable */
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #de8b8b;
 }
-ul li:nth-child(odd) {
-    background: #DBDFEA;
-}
-
-ul li:nth-child(even) {
-    background: #EEF3F9;
-}
-
-
-.e {
-  width: 10px;
-}
-
-
-.material-icons {
-    font-size: 1.6rem;
-  }
