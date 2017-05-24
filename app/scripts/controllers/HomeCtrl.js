@@ -1,30 +1,24 @@
 (function() {
-  function HomeCtrl(Task,$scope,$firebaseArray,$state) {
-  //  $state.transitionTo('home.test');
+    function HomeCtrl(Task, $scope, $firebaseArray, $state) {
+      this.tasks = Task.all;
+      this.completedList = Task.completedTasks;
+      this.expiredList = Task.expiredList;
 
-this.viewCompleted = false;
-    this.title = "Tasks Manager"
-    this.tasks = Task.all;
-    this.image = "..\scripts\background.gif";
-    this.activeList
-    this.completedList = Task.completedTasks;
-    this.expiredList = Task.expiredList;
-    this.createTask = function (value) {
-      Task.addTask(value);
-      this.taskName = ""
-    }
-    this.removeTask = function(task) {
-      Task.deleteTask(task);
- 	}
+      this.createTask = function(value) {
+        Task.addTask(value);
+        this.taskName = ""
+      }
 
-    this.completed = function(task) {
-     Task.completed(task);
-     this.completedList.push(task)
-    }
+      this.removeTask = function(task) {
+        Task.deleteTask(task);
+      }
+
+      this.completed = function(task) {
+        Task.completed(task);
+        this.completedList.push(task)
+      }
 
     }
-
-
 
 
   angular

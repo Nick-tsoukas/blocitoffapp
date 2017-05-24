@@ -1,23 +1,13 @@
 
 
-.myCard {
-    /*min-width: 80%;*/
-    /* float: left; */
-    margin-left: 6rem;
-    margin-right: 6rem;
-}
 .cardTitle {
   text-align: left;
-  /* padding-left: 1rem; */
   padding-top:1rem;
   padding-left: 1rem;
   min-height: 50px;
   background: #F7F9FC;
 }
 
-.myCard img {
-  max-height:200px;
-}
 .green {
   color: green;
 }
