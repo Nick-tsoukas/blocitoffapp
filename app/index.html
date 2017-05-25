@@ -13,68 +13,86 @@
 </head>
 
 <body>
-  <div layout="row" layout-xs="column">
-    <div class='test' flex>
+  <div class="container">
+    <div class="cell">
+<h3>Task App  </h3>
+    </div>
+    <div style="width:100%;" class="cell">
+      <div ng-cloak>
+        <md-content>
+          <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Active">
+              <md-content class="md-padding">
+                <h1 class="md-display-2">Active Tasks</h1>
+                <!--home controller  -->
+                <div ng-controller="HomeCtrl as home">
+                  <md-card class="myCard">
+                    <md-card-header-text class="cardTitle"> Active </md-card-header-text>
+                    <md-card-actions layout="row" layout-align="start center">
+                      <md-card-icon-actions>
+                        <md-input-container>
+                          <form ng-submit="home.createTask(home.taskName)">
+                            <label>Add a task...</label>
+                            <input type="text" ng-model="home.taskName">
+                          </form>
+                        </md-input-container>
+                      </md-card-icon-actions>
+                    </md-card-actions>
+                    <md-card-content>
+                      <md-list ng-if="home.tasks.length">
+                        <md-list-item class="" ng-repeat="task in home.tasks">
+                      {{ task.name }}
+                          <md-checkbox class="md-secondary" ng-click="home.completed(task)"></md-checkbox>
+                            <i ng-click="home.removeTask(task)" class="material-icons">delete</i>
+                        </md-list-item>
+                      </md-list>
+                    </md-card-content>
+                  </md-card>
+                </div>
+              </md-content>
+            </md-tab>
+            <md-tab label="Expired">
+              <md-content class="md-padding">
+                <h1 class="md-display-2">Expired Tasks </h1>
 
-      <div ng-controller="HomeCtrl as home">
-        <md-card class="myCard">
-          <md-card-header-text class="cardTitle"> Active </md-card-header-text>
-          <md-card-actions layout="row" layout-align="start center">
-            <md-card-icon-actions>
-              <md-input-container>
-                <form ng-submit="home.createTask(home.taskName)">
-                  <label>Add a task...</label>
-                  <input type="text" ng-model="home.taskName">
-                </form>
-              </md-input-container>
-            </md-card-icon-actions>
-          </md-card-actions>
-          <md-card-content>
-            <md-list ng-if="home.tasks.length">
-              <md-list-item class="" ng-repeat="task in home.tasks">
-                <i ng-click="home.removeTask(task)" class="material-icons">delete</i>
-                {{ task.name }}
-                <md-checkbox class="md-secondary" ng-click="home.completed(task)">
-              </md-list-item>
-            </md-list>
-          </md-card-content>
-        </md-card>
+                    <!--ExpiredCtrl as expired  -->
+                <div ng-controller="ExpiredCtrl as expired">
+                  <md-card class="myCard">
+                    <md-card-header-text class="cardTitle"> Expired Tasks </md-card-header-text>
+                    <md-card-content>
+                      <md-list>
+                        <md-list-item class="" ng-repeat="list in expired.expiredList">{{list.name}}
+                          <md-icon class="md-secondary green" class=" ">check
+                        </md-list-item>
+                      </md-list>
+                    </md-card-content>
+                  </md-card>
+                </div>
+              </md-content>
+            </md-tab>
+            <md-tab label="Completed">
+              <md-content class="md-padding">
+                <h1 class="md-display-2">Completed Tasks</h1>
+                <!-- CompTask as comp -->
+                <div ng-controller="CompCtrl as comp">
+                  <md-card class="myCard">
+                    <md-card-header-text class="cardTitle"> Completed Tasks </md-card-header-text>
+                    <md-card-content>
+                      <md-list>
+                        <md-list-item class="" ng-repeat="list in comp.completedList">{{list.name}}
+                          <md-icon class="md-secondary green" class=" ">check
+                        </md-list-item>
+                      </md-list>
+                    </md-card-content>
+                  </md-card>
+                </div>
+              </md-content>
+            </md-tab>
+          </md-tabs </md-content>
       </div>
     </div>
 
-    <div class='test' flex>
-      <div ng-controller="ExpiredCtrl as expired">
-        <md-card class="myCard">
-          <md-card-header-text class="cardTitle"> Expired Tasks </md-card-header-text>
-          <md-card-content>
-            <md-list>
-              <md-list-item class="" ng-repeat="list in expired.expiredList">{{list.name}}
-                <md-icon class="md-secondary green" class=" ">check
-              </md-list-item>
-            </md-list>
-          </md-card-content>
-        </md-card>
-      </div>
-    </div>
-
-    <div class='test' flex>
-      <div ng-controller="CompTask as comp">
-        <md-card class="myCard">
-          <md-card-header-text class="cardTitle"> Completed Tasks </md-card-header-text>
-          <md-card-content>
-            <md-list>
-              <md-list-item class="" ng-repeat="list in comp.completedList">{{list.name}}
-                <md-icon class="md-secondary green" class=" ">check
-              </md-list-item>
-            </md-list>
-          </md-card-content>
-        </md-card>
-      </div>
-    </div>
   </div>
-
-
-
 
 
   <!-- <ui-view></ui-view> -->

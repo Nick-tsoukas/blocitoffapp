@@ -1,5 +1,5 @@
 (function() {
-  function CompTask(Task,$scope,$firebaseArray) {
+  function CompCtrl(Task,$scope,$firebaseArray) {
   this.title = "test title"
   this.completedList = Task.completedTasks;
   this.tasks = Task.all;
@@ -10,5 +10,5 @@
 
   angular
     .module('taskApp')
-    .controller('CompTask', ['Task','$firebaseArray', CompTask]);
+    .controller('CompCtrl', ['Task','$firebaseArray', CompCtrl]);
 })();
