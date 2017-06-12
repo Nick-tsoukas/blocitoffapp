@@ -49,9 +49,9 @@
                       </md-card-icon-actions>
                     </md-card-actions>
                     <md-card-content>
-                      <md-list ng-if="home.tasks.length">
+                      <md-list ng-if="home.tasks.length ">
                         <md-list-item class="" ng-repeat="task in home.tasks">
-                          {{ task }}
+                          {{ task.name }} <span class="marginAuto">{{task.priority}}</span>
                           <md-checkbox class="md-secondary" ng-click="home.completed(task)"></md-checkbox>
                           <i ng-click="home.removeTask(task)" class="material-icons">delete</i>
                         </md-list-item>

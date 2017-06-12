@@ -21,7 +21,10 @@ md-content {
   margin-left: 2rem;
   margin-right: 2rem;
 }
-
+.marginAuto {
+  margin: auto;
+  color:green;
+}
 .box {
   height: 50px;
   width: 50px;
