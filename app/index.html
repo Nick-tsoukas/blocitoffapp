@@ -15,7 +15,7 @@
 <body>
   <div class="container">
     <div class="cell">
-<h3>Task App  </h3>
+      <h3>Task App  </h3>
     </div>
     <div style="width:100%;" class="cell">
       <div ng-cloak>
@@ -30,20 +30,30 @@
                     <md-card-header-text class="cardTitle"> Active </md-card-header-text>
                     <md-card-actions layout="row" layout-align="start center">
                       <md-card-icon-actions>
-                        <md-input-container>
-                          <form ng-submit="home.createTask(home.taskName)">
+                        <form ng-submit="home.createTask(home.taskName,home.levelTest)">
+                          <md-input-container>
+
                             <label>Add a task...</label>
                             <input type="text" ng-model="home.taskName">
-                          </form>
-                        </md-input-container>
+                          </md-input-container>
+
+                          <!-- add priority -->
+
+                          <md-input-container class="position margin">
+                            <md-select ng-model="home.levelTest" placeholder="priority">
+                              <md-option ng-repeat="level in home.priority" value="{{level}}">{{level}}</md-option>
+                            </md-select>
+                          </md-input-container>
+                          <input class="position" type="submit" id="submit" value="Submit" />
+                        </form>
                       </md-card-icon-actions>
                     </md-card-actions>
                     <md-card-content>
                       <md-list ng-if="home.tasks.length">
                         <md-list-item class="" ng-repeat="task in home.tasks">
-                      {{ task.name }}
+                          {{ task }}
                           <md-checkbox class="md-secondary" ng-click="home.completed(task)"></md-checkbox>
-                            <i ng-click="home.removeTask(task)" class="material-icons">delete</i>
+                          <i ng-click="home.removeTask(task)" class="material-icons">delete</i>
                         </md-list-item>
                       </md-list>
                     </md-card-content>
@@ -55,14 +65,14 @@
               <md-content class="md-padding">
                 <h1 class="md-display-2">Expired Tasks </h1>
 
-                    <!--ExpiredCtrl as expired  -->
+                <!--ExpiredCtrl as expired  -->
                 <div ng-controller="ExpiredCtrl as expired">
                   <md-card class="myCard">
                     <md-card-header-text class="cardTitle"> Expired Tasks </md-card-header-text>
                     <md-card-content>
                       <md-list>
                         <md-list-item class="" ng-repeat="list in expired.expiredList">{{list.name}}
-                          <md-icon class="md-secondary green" class=" ">check
+                          <md-icon class="md-secondary green">check</md-icon>
                         </md-list-item>
                       </md-list>
                     </md-card-content>
@@ -80,7 +90,7 @@
                     <md-card-content>
                       <md-list>
                         <md-list-item class="" ng-repeat="list in comp.completedList">{{list.name}}
-                          <md-icon class="md-secondary green" class=" ">check
+                          <md-icon class="md-secondary green">check</md-icon>
                         </md-list-item>
                       </md-list>
                     </md-card-content>
@@ -88,50 +98,48 @@
                 </div>
               </md-content>
             </md-tab>
-          </md-tabs </md-content>
+          </md-tabs </div>
+
       </div>
-    </div>
-
-  </div>
 
 
-  <!-- <ui-view></ui-view> -->
-  <!-- Angular Material requires Angular.js Libraries -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+      <!-- <ui-view></ui-view> -->
+      <!-- Angular Material requires Angular.js Libraries -->
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
-  <!-- Angular Material Library -->
-  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+      <!-- Angular Material Library -->
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
-  <!-- AngularUI Router -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script> -->
+      <!-- AngularUI Router -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.js"></script> -->
 
-  <!-- FireBase -->
-  <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-  <!-- AngularFire -->
-  <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyC_q9xwS3cSGWbyASgFfC92-uQsxFXg0-o",
-      authDomain: "task-app-2c62e.firebaseapp.com",
-      databaseURL: "https://task-app-2c62e.firebaseio.com",
-      projectId: "task-app-2c62e",
-      storageBucket: "task-app-2c62e.appspot.com",
-      messagingSenderId: "342412852774"
-    };
+      <!-- FireBase -->
+      <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+      <!-- AngularFire -->
+      <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+          apiKey: "AIzaSyC_q9xwS3cSGWbyASgFfC92-uQsxFXg0-o",
+          authDomain: "task-app-2c62e.firebaseapp.com",
+          databaseURL: "https://task-app-2c62e.firebaseio.com",
+          projectId: "task-app-2c62e",
+          storageBucket: "task-app-2c62e.appspot.com",
+          messagingSenderId: "342412852774"
+        };
 
-    firebase.initializeApp(config);
-  </script>
-  <script src="/scripts/app.js"></script>
-  <script src="/scripts/controllers/HomeCtrl.js"></script>
-  <script src="/scripts/services/task.js"></script>
-  <script src="/scripts/inputColor.js"></script>
-  <script src="/scripts/controllers/CompCtrl.js"></script>
-  <script src="/scripts/controllers/ExpiredCtrl.js"></script>
+        firebase.initializeApp(config);
+      </script>
+      <script src="/scripts/app.js"></script>
+      <script src="/scripts/controllers/HomeCtrl.js"></script>
+      <script src="/scripts/services/task.js"></script>
+      <script src="/scripts/inputColor.js"></script>
+      <script src="/scripts/controllers/CompCtrl.js"></script>
+      <script src="/scripts/controllers/ExpiredCtrl.js"></script>
 
 </body>
 
