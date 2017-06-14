@@ -1,11 +1,7 @@
 (function() {
-  function ExpiredCtrl(Task,$scope,$firebaseArray,$state) {
-  this.test = "hello world";
+  function ExpiredCtrl(Task,$scope,$firebaseArray) {
   this.expiredList = Task.expiredList;
     }
-
-
-
 
   angular
     .module('taskApp')

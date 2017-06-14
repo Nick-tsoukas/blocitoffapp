@@ -1,10 +1,8 @@
 (function() {
-  function HomeCtrl(Task, $scope, $firebaseArray, $state) {
+  function HomeCtrl(Task, $scope, $firebaseArray) {
     this.tasks = Task.all;
     this.completedList = Task.completedTasks;
     this.expiredList = Task.expiredList;
-
-
 
     this.priority = [
       "High",
@@ -15,8 +13,8 @@
     ];
 
 
-    this.createTask = function(value,value2) {
-      Task.addTask(value,value2);
+    this.createTask = function(value, value2) {
+      Task.addTask(value, value2);
       this.taskName = "";
     }
 

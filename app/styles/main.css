@@ -15,25 +15,20 @@ md-content {
   display: flex;
 }
 
+div .fullwidth {
+  width: 100%;
+}
+
 .position {
   position: relative;
   bottom: .6rem;
   margin-left: 2rem;
   margin-right: 2rem;
 }
-.marginAuto {
-  margin: auto;
-  color:green;
-}
-.box {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background: red;
-}
 
-.letter {
-  position: absolute;
+.addLeftMargin {
+  margin-left: 8.5rem;
+  color: green;
 }
 
 .green {
@@ -49,10 +44,6 @@ i.material-icons {
   right: 70px;
 }
 
-.addPaddingBottom {
-  margin-bottom: 3rem;
-}
-
 .center {
   vertical-align: middle;
   background: white;
@@ -61,25 +52,10 @@ i.material-icons {
   margin-right: 20%
 }
 
-.noMargin {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-right: 2rem;
-}
-
 .cell {
   width: 20%;
   border-right: 1px solid;
   text-align: center;
-}
-
-.top-button {
-  position: relative;
-  bottom: 4rem;
-}
-
-.left {
-  text-align: left;
 }
 
 md-content {

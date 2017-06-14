@@ -26,18 +26,6 @@
                 url: '/',
                 controller: 'HomeCtrl as home',
                 templateUrl: '/scripts/templates/home.html'
-            })
-            .state('completed', {
-                parent: 'home',
-                url: 'completed',
-                controller: 'CompTask as comp',
-                templateUrl: '/scripts/templates/completed.html'
-            })
-            .state('expired', {
-                parent: 'completed',
-                url: '/expried',
-                controller: 'ExpiredCtrl as expired',
-                templateUrl: '/scripts/templates/expired.html'
             });
 
     }
