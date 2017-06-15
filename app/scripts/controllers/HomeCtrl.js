@@ -3,6 +3,7 @@
     this.tasks = Task.all;
     this.completedList = Task.completedTasks;
     this.expiredList = Task.expiredList;
+    this.activeList = Task.activeTasks;
 
     this.priority = [
       "High",

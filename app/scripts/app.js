@@ -24,8 +24,8 @@
         $stateProvider
             .state('home', {
                 url: '/',
-                controller: 'HomeCtrl as home',
-                templateUrl: '/scripts/templates/home.html'
+                controller: 'HomeCtrl as home'
+
             });
 
     }

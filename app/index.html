@@ -58,7 +58,7 @@
                     </md-card-actions>
                     <md-card-content>
                       <md-list ng-if="home.tasks.length ">
-                        <md-list-item class="" ng-repeat="task in home.tasks ">
+                        <md-list-item ng-repeat="task in home.tasks">
                           {{ task.name }}
                           <span class="addLeftMargin">
                             {{task.priority}}
@@ -74,6 +74,7 @@
                 </div>
               </md-content>
             </md-tab>
+
             <md-tab label="Expired">
               <md-content class="md-padding">
                 <h1 class="md-display-2">
@@ -166,7 +167,6 @@
   <script src="/scripts/app.js"></script>
   <script src="/scripts/controllers/HomeCtrl.js"></script>
   <script src="/scripts/services/task.js"></script>
-  <script src="/scripts/inputColor.js"></script>
   <script src="/scripts/controllers/CompCtrl.js"></script>
   <script src="/scripts/controllers/ExpiredCtrl.js"></script>
 

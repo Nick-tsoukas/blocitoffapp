@@ -14,10 +14,8 @@
           if (task.completed) {
             completedTasks.push(task);
           }
-          if ((timeNow - task.startedAt) > 0) {
+          if ((timeNow - task.startedAt) > Seven_days) {
             expiredList.push(task);
-          } else {
-
           }
         })
       });
@@ -41,6 +39,12 @@
           completed: false
 
 
+        }).then(function(x) {
+          tasks.forEach(function(task) {
+            if (!task.completed) {
+              activeTasks.push(task);
+            }
+          })
         });
 
       },
